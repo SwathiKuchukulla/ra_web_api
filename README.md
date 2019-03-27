@@ -7,7 +7,8 @@ This branch contains REST API examples.
 ## Installing
 
 ```sh
-pip install git+https://github.com/SwathiKuchukulla/risk_web_api.git@peter/rest_api_example
+pip install git+https://github.com/SwathiKuchukulla/ra_web_api.git
+
 ```
 
 ## Starting server
