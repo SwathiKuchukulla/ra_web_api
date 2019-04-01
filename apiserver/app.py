@@ -108,13 +108,14 @@ def score_with_validation():
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
     file = request.files['myfile']
-    print(file)
+    print("File: ", file)
     filename = secure_filename(file.filename) 
     print(filename)
-    file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
-   
+    input_file = file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
+    print(input_file)
     with open("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\myfile.json") as f:
         file_content = f.read()
 
     return file_content
 
+# Try using UPLOAD_FOLDER
