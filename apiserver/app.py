@@ -111,11 +111,17 @@ def score_with_file():
     print("File: ", file)
     filename = secure_filename(file.filename) 
     print(filename)
-    input_file = file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
-    print(input_file)
-    with open("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\myfile.json") as f:
-        file_content = f.read()
+    inputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename)
+    print(inputFilePath)
+    outputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename + "_output")
+    print(outputFilePath)
+    result = medicaid_engine.getRiskAdjustmentScore(inputFilePath, outputFilePath)
+    
+    #file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
+    #print(input_file)
+    #with open("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\myfile.json") as f:
+    #    file_content = f.read()
 
-    return file_content
+    return jsonify(result)
 
 # Try using UPLOAD_FOLDER
