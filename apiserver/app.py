@@ -3,6 +3,7 @@ from rascore import medicaid_engine
 from werkzeug.utils import secure_filename
 
 import jsonschema
+import os
 
 app = Flask('apiserver')
 app.config['JSON_SORT_KEYS'] = False
