@@ -1,0 +1,42 @@
+{
+"memberKey": "8478639",
+	"gender": "F",
+	"age": 40,
+	"disabledFlag": false,
+	"lineOfBusiness": "Medicaid",
+	"modelConditions": [{
+			"name": "CDPS",
+			"version": "6.2",
+			"state": "KY",
+			"type": "Prospective",
+			"input": "Dx",
+			"year": "2018",
+			"conditions": [{
+					"code": "K76.0",
+					"type": "Dx",
+					"version": "10",
+					"status": "Open"
+				}, {
+					"code": "N13.4",
+					"type": "Dx",
+					"version": "10",
+					"status": "Open"
+				}, {
+					"code": "I10",
+					"type": "Dx",
+					"version": "10",
+					"status": "Open"
+				},{
+					"code": "R00.1",
+					"type": "Dx",
+					"version": "10",
+					"status": "Open"
+				}
+			]
+		}
+	],
+	"customScoreComponents": {
+		"interceptFlag": true,
+		"demographicsFlag": true
+	}
+}

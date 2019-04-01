@@ -111,8 +111,9 @@ def score_with_file():
     print(file)
     filename = secure_filename(file.filename) 
     print(filename)
-    file_save = file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
-    with open(file_save) as f:
+    file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
+   
+    with open("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\myfile.json") as f:
         file_content = f.read()
 
     return file_content
