@@ -106,6 +106,10 @@ def score_with_validation():
 # This example uses json file as input data
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
-    file = request.files['file']
+    file_name = request.form["file_name"]
 
-    return file.read()
+    with open(file_name, 'r') as f:
+        file_content = f.read()
+
+    return file_content
+
