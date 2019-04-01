@@ -1,4 +1,4 @@
-from flask import Flask, flask, json, jsonify, redirect, request, url_for
+from flask import Flask, json, jsonify, redirect, request, url_for
 from rascore import medicaid_engine
 from werkzeug.utils import secure_filename
 
