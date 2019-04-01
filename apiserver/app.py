@@ -107,8 +107,9 @@ def score_with_validation():
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
     file = request.files['myfile']
-
+    print(file)
     filename = secure_filename(file.filename) 
+    print(filename)
     file_save = file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
     with open(file_save) as f:
         file_content = f.read()
