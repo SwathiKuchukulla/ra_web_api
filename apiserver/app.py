@@ -1,5 +1,6 @@
-from flask import request, jsonify, Flask, json, url_for, redirect 
+from flask import Flask, flask, json, jsonify, redirect, request, url_for
 from rascore import medicaid_engine
+from werkzeug.utils import secure_filename
 
 import jsonschema
 
@@ -105,7 +106,12 @@ def score_with_validation():
 # This example uses json file as input data
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
-    result = request.files['myfile']
+    file = request.files['myfile']
 
-    return result.filename
+    filename = secure_filename(file.filename) 
+    file_save = file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
+    with open(file_save) as f:
+        file_content = f.read()
+
+    return file_content
 
