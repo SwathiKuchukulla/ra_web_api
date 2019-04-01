@@ -111,9 +111,10 @@ def score_with_file():
     print("File: ", file)
     filename = secure_filename(file.filename) 
     print(filename)
-    inputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename)
+    file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\files\\", filename))
+    inputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\files\\", filename)
     print(inputFilePath)
-    outputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename + "_output")
+    outputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\files\\", filename + "_output")
     print(outputFilePath)
     result = medicaid_engine.getRiskAdjustmentScore(inputFilePath, outputFilePath)
     
