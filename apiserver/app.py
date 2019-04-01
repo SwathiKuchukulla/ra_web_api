@@ -101,3 +101,11 @@ def score_with_validation():
 
     result = medicaid_engine.compute_risk_score(request.json)
     return jsonify(result)
+
+
+# This example uses json file as input data
+@app.route('/score_with_file',  methods=['POST'])
+def score_with_validation():
+    file = request.files['file']
+
+    return file.read()
