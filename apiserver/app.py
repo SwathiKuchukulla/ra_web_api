@@ -1,8 +1,7 @@
 from flask import request, jsonify, Flask, json, url_for, redirect 
-import jsonschema
-
 from rascore import medicaid_engine
 
+import jsonschema
 
 app = Flask('apiserver')
 app.config['JSON_SORT_KEYS'] = False
@@ -106,9 +105,9 @@ def score_with_validation():
 # This example uses json file as input data
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
-    file_name = request.form["file_name"]
+    file = request.files["file_name"]
 
-    with open(file_name, 'r') as f:
+    with open(file, 'r') as f:
         file_content = f.read()
 
     return file_content
