@@ -8,27 +8,6 @@ import os
 
 app = Flask('apiserver')
 
-directory = "C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\"
-input_folder = os.path.join(directory, 'files') 
-logs_folder = os.path.join(directory, 'logs')
-
-app.config['input_folder'] = input_folder
-
-isValid = 0
-
-def check_Credential(adDomServer, dnAccount, dnPassword):
-	server = Server(adDomServer, get_info=ALL)
-	try:		
-		conn = Connection(server, dnAccount, dnPassword, auto_bind=True)
-		isValid=1
-		print('LDAP Bind Successful.')
-		#print(conn)
-	except core.exceptions.LDAPBindError as e:
-		isValid = 0
-		print('LDAP Bind Failed: ', e)		
-	return isValid
-
-
 score_input_schema = {
     'type': 'object',
     'properties': {
@@ -124,6 +103,11 @@ def score_with_validation():
     return jsonify(result)
 
 
+directory = "C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\"
+input_folder = os.path.join(directory, 'files') 
+logs_folder = os.path.join(directory, 'logs')
+app.config['input_folder'] = input_folder
+
 # This example uses json file as input data
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
@@ -137,4 +121,15 @@ def score_with_file():
     result = medicaid_engine.getRiskAdjustmentScore(inputFilePath, outputFilePath)
     return jsonify(result)
 
-# Try using UPLOAD_FOLDER
+
+if __name__ == '__main__':
+    isValid = 0
+    adDomServer = 'aritprdc01.corp.evolenthealth.com'
+    server = Server(adDomServer, get_info=ALL)
+    try:		
+        conn = Connection(server, auto_bind=True)
+        isValid=1
+        print('LDAP Bind Successful.')		
+    except core.exceptions.LDAPBindError as e:
+        isValid = 0
+        print('Authentication Error ', e)		
