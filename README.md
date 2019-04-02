@@ -42,3 +42,4 @@ And you will see output similar to this
 - POST /score
 - POST /score_handle_engine_error
 - POST /score_with_validation
+- POST /score_with_file
