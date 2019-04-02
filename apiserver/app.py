@@ -1,5 +1,5 @@
 from flask import Flask, json, jsonify, redirect, request, url_for
-#from rascore import medicaid_engine
+from rascore import medicaid_engine
 from werkzeug.utils import secure_filename
 from ldap3 import Server, Connection, ALL, NTLM,core
 
@@ -22,6 +22,7 @@ check_Credential('aritprdc01.corp.evolenthealth.com','Swathi', 'Swathi')
 
 
 app = Flask('apiserver')
+app.config['JSON_SORT_KEYS'] = False
 
 score_input_schema = {
     'type': 'object',
