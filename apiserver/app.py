@@ -7,15 +7,15 @@ import jsonschema
 import os
 
 isValid = 0
-def check_Credential(adDomServer, dnAccount, dnPassword):
+def check_credential(adDomServer, dnAccount, dnPassword):
 	server = Server(adDomServer, get_info=ALL)
 	try:		
 		conn = Connection(server, auto_bind=True)
 		isValid=1
-		print('LDAP Bind Successful.')
+		print('Authentication Successful.')
 	except core.exceptions.LDAPBindError as e:
 		isValid=0
-		print('Authentication Error', e)			
+		print('Authentication Errored', e)			
 	return isValid
 
 check_Credential('aritprdc01.corp.evolenthealth.com','Swathi', 'Swathi')
