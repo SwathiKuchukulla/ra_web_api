@@ -1,10 +1,25 @@
 from flask import Flask, json, jsonify, redirect, request, url_for
-from rascore import medicaid_engine
+#from rascore import medicaid_engine
 from werkzeug.utils import secure_filename
 from ldap3 import Server, Connection, ALL, NTLM,core
 
 import jsonschema
 import os
+
+isValid = 0
+def check_Credential(adDomServer, dnAccount, dnPassword):
+	server = Server(adDomServer, get_info=ALL)
+	try:		
+		conn = Connection(server, auto_bind=True)
+		isValid=1
+		print('LDAP Bind Successful.')
+	except core.exceptions.LDAPBindError as e:
+		isValid=0
+		print('Authentication Error', e)			
+	return isValid
+
+check_Credential('aritprdc01.corp.evolenthealth.com','Swathi', 'Swathi')
+
 
 app = Flask('apiserver')
 
@@ -120,16 +135,3 @@ def score_with_file():
 
     result = medicaid_engine.getRiskAdjustmentScore(inputFilePath, outputFilePath)
     return jsonify(result)
-
-
-if __name__ == '__main__':
-    isValid = 0
-    adDomServer = 'aritprdc01.corp.evolenthealth.com'
-    server = Server(adDomServer, get_info=ALL)
-    try:		
-        conn = Connection(server, auto_bind=True)
-        isValid=1
-        print('LDAP Bind Successful.')		
-    except core.exceptions.LDAPBindError as e:
-        isValid = 0
-        print('Authentication Error ', e)		
