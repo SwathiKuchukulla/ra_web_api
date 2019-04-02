@@ -19,8 +19,7 @@ conditionHierarchy = {
 	"Confirmed-Claim": 3
 }
 
-directory = "C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\"
-#directory = ""
+directory = ""
 
 def defineInputOutputFilePaths(inputFilePath, outputFilePath):
     """defining Input & Output FilePaths """

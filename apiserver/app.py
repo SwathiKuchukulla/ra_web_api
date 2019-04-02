@@ -1,11 +1,13 @@
 from flask import Flask, json, jsonify, redirect, request, url_for
-from rascore import medicaid_engine, scoring
+from rascore import medicaid_engine
 from werkzeug.utils import secure_filename
 
 import jsonschema
 import os
 
 app = Flask('apiserver')
+
+directory = "C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\"
 input_folder = os.path.join(directory, 'files') 
 logs_folder = os.path.join(directory, 'logs')
 
