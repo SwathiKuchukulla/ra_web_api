@@ -19,7 +19,7 @@ conditionHierarchy = {
 	"Confirmed-Claim": 3
 }
 
-directory = "C:\\Users\\srkuchukulla\\Source\\Repos\\risk-adjustment-scoring\\risk-scoring-ui\\risk-scoring-ui\\risk_scoring_ui\\"
+directory = "C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\"
 #directory = ""
 
 def defineInputOutputFilePaths(inputFilePath, outputFilePath):

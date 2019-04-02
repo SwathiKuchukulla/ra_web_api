@@ -1,13 +1,15 @@
 from flask import Flask, json, jsonify, redirect, request, url_for
-from rascore import medicaid_engine
+from rascore import medicaid_engine, scoring
 from werkzeug.utils import secure_filename
 
 import jsonschema
 import os
 
 app = Flask('apiserver')
-app.config['JSON_SORT_KEYS'] = False
+input_folder = os.path.join(directory, 'files') 
+logs_folder = os.path.join(directory, 'logs')
 
+app.config['input_folder'] = input_folder
 
 score_input_schema = {
     'type': 'object',
@@ -107,22 +109,14 @@ def score_with_validation():
 # This example uses json file as input data
 @app.route('/score_with_file',  methods=['POST'])
 def score_with_file():
-    file = request.files['myfile']
-    print("File: ", file)
+    file = request.files['file']
     filename = secure_filename(file.filename) 
-    print(filename)
-    file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\files\\", filename))
-    inputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\files\\", filename)
-    print(inputFilePath)
-    outputFilePath = os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\files\\", filename + "_output")
-    print(outputFilePath)
-    result = medicaid_engine.getRiskAdjustmentScore(inputFilePath, outputFilePath)
-    
-    #file.save(os.path.join("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\", filename))
-    #print(input_file)
-    #with open("C:\\Users\\srkuchukulla\\Source\\Repos\\ra_web_api\\myfile.json") as f:
-    #    file_content = f.read()
+   
+    file.save(os.path.join(app.config['input_folder'], filename))    
+    inputFilePath = os.path.join(app.config['input_folder'], filename)
+    outputFilePath = os.path.join(app.config['input_folder'], filename.split('.')[0] + '_Output.json')
 
+    result = medicaid_engine.getRiskAdjustmentScore(inputFilePath, outputFilePath)
     return jsonify(result)
 
 # Try using UPLOAD_FOLDER

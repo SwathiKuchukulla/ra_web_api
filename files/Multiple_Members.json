@@ -1,0 +1,743 @@
+[{
+		"memberKey": 201901,
+		"gender": "m",
+		"age": 78,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	},
+{
+		"memberKey": 201902,
+		"gender": "m",
+		"age": 70,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201903,
+		"gender": "m",
+		"age": 16,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201904,
+		"gender": "m",
+		"age": 14,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201905,
+		"gender": "f",
+		"age": 69,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	},
+{
+		"memberKey": 201906,
+		"gender": "f",
+		"age": 80,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201907,
+		"gender": "f",
+		"age": 12,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201908,
+		"gender": "f",
+		"age": 5,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201909,
+		"gender": "m",
+		"age": 80,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	},
+{
+		"memberKey": 201910,
+		"gender": "m",
+		"age": 77,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201911,
+		"gender": "m",
+		"age": 8,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201912,
+		"gender": "m",
+		"age": 18,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201913,
+		"gender": "f",
+		"age": 19,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	},
+{
+		"memberKey": 201914,
+		"gender": "f",
+		"age": 57,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201915,
+		"gender": "f",
+		"age": 11,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "CONCURRENT",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201916,
+		"gender": "f",
+		"age": 8,
+		"disabledFlag": true,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "CDPS",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"state": "National",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "S72.422C",
+						"description": "Displaced fracture of lateral condyle of left femur, initial encounter for open fracture type IIIA, IIIB, or IIIC",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "O24.92",
+						"description": "Unspecified diabetes mellitus in childbirth",
+						"type": "Dx",
+						"version": "10",
+						"status": "open"
+					}, {
+						"code": "M05.151",
+						"description": "Rheumatoid lung disease with rheumatoid arthritis of right hip",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}	
+,
+{
+		"memberKey": 201917,
+		"gender": "m",
+		"age": 25,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "J95.01",
+						"description": "Hemorrhage from tracheostomy stoma",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "J47.0",
+						"description": "Bronchiectasis with acute lower respiratory infection",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-PCP"
+					}, {
+						"code": "Z94.3",
+						"description": "Heart and lungs transplant status",
+						"type": "Dx",
+						"version": "10",
+						"status": "Confirmed-Claim"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}
+,
+{
+		"memberKey": 201918,
+		"gender": "f",
+		"age": 45,
+		"disabledFlag": false,
+		"lineOfBusiness": "MEDICAID",
+		"modelConditions": [{
+				"name": "",
+				"version": "6.2",
+				"type": "PROSPECTIVE",
+				"input": "Dx",
+				"year": "",
+				"partDFactor": 0,
+				"conditions": [{
+						"code": "J95.01",
+						"description": "Hemorrhage from tracheostomy stoma",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "J47.0",
+						"description": "Bronchiectasis with acute lower respiratory infection",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}, {
+						"code": "Z94.3",
+						"description": "Heart and lungs transplant status",
+						"type": "Dx",
+						"version": "10",
+						"status": "Open"
+					}
+				]
+			}
+		],
+		"customScoreComponents": {
+			"interceptFlag": true,
+			"demographicsFlag": true
+		}
+	}
+	
+]
