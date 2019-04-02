@@ -289,3 +289,4 @@ MANIFEST
 
 # OSX
 .DS_Store
+/files/Multiple_Members_Output.json

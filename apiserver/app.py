@@ -1,6 +1,7 @@
 from flask import Flask, json, jsonify, redirect, request, url_for
 from rascore import medicaid_engine
 from werkzeug.utils import secure_filename
+from ldap3 import Server, Connection, ALL, NTLM,core
 
 import jsonschema
 import os
@@ -12,6 +13,21 @@ input_folder = os.path.join(directory, 'files')
 logs_folder = os.path.join(directory, 'logs')
 
 app.config['input_folder'] = input_folder
+
+isValid = 0
+
+def check_Credential(adDomServer, dnAccount, dnPassword):
+	server = Server(adDomServer, get_info=ALL)
+	try:		
+		conn = Connection(server, dnAccount, dnPassword, auto_bind=True)
+		isValid=1
+		print('LDAP Bind Successful.')
+		#print(conn)
+	except core.exceptions.LDAPBindError as e:
+		isValid = 0
+		print('LDAP Bind Failed: ', e)		
+	return isValid
+
 
 score_input_schema = {
     'type': 'object',
