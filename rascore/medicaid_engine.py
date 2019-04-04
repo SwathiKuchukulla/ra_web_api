@@ -5,7 +5,7 @@ from datetime import datetime
 from rascore import medicaid_model as sc
 from rascore.scoring import (conditionHierarchy, directory)
 
-logging.basicConfig(filename = os.path.join(directory, 'Logs\\Medicaid_Scoring.log'), level = logging.INFO, filemode = 'w')
+#logging.basicConfig(filename = os.path.join(directory, 'Logs\\Medicaid_Scoring.log'), level = logging.INFO, filemode = 'w')
 
 def compute_risk_score(member):
     output ={
