@@ -4,32 +4,37 @@ import datetime
 import re
 import logging
 
+
 from typing import List
 from collections import defaultdict
 from rascore.scoring import referenceFilesData
 
 def validateMemberParameters(memberParams):
     cleanMemberParams = memberParams.copy()
-    if cleanMemberParams['memberKey'] == '':
-        logging.error('Error - MemberId: not found; Scoring can not be computed')
-    if cleanMemberParams['gender'] == '':
-        logging.info('MemberId: %s; Error - Gender not found; Effects Demographic Component', cleanMemberParams['memberKey'])
-    elif cleanMemberParams['gender'] not in ('f', 'm', 'F', 'M'):
-        logging.info('MemberId: %s; Error - Gender not valid; Effects Demographic Component', cleanMemberParams['memberKey'])
-    else: 
-        cleanMemberParams['gender'] = cleanMemberParams['gender'].lower()
-    if cleanMemberParams['age'] == '':
-        logging.info('MemberId: %s; Error - Age not found; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
-    elif cleanMemberParams['age'] != int(cleanMemberParams['age']):
-        logging.info('MemberId: %s; Error - Age not valid; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])        
-    if cleanMemberParams['disabledFlag'] == '':
-        cleanMemberParams['disabledFlag'] = False
-    if cleanMemberParams['lineOfBusiness'] == '':
-        logging.info('MemberId: %s; Error - Line Of Business not found; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
-    elif cleanMemberParams['lineOfBusiness'].upper() not in ('MEDICARE', 'MEDICAID', 'NEXT GEN', 'ACA'):
-        logging.info('MemberId: %s; Error - Line Of Business not valid; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
-    else: 
-        cleanMemberParams['lineOfBusiness'] = cleanMemberParams['lineOfBusiness'] 
+    try:
+        if cleanMemberParams['memberKey'] == '':
+            logging.error('Error - MemberId: not found; Scoring can not be computed')
+            raise Exception
+        if cleanMemberParams['gender'] == '':
+            logging.info('MemberId: %s; Error - Gender not found; Effects Demographic Component', cleanMemberParams['memberKey'])
+        elif cleanMemberParams['gender'] not in ('f', 'm', 'F', 'M'):
+            logging.info('MemberId: %s; Error - Gender not valid; Effects Demographic Component', cleanMemberParams['memberKey'])
+        else: 
+            cleanMemberParams['gender'] = cleanMemberParams['gender'].lower()
+        if cleanMemberParams['age'] == '':
+            logging.info('MemberId: %s; Error - Age not found; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
+        elif cleanMemberParams['age'] != int(cleanMemberParams['age']):
+            logging.info('MemberId: %s; Error - Age not valid; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])        
+        if cleanMemberParams['disabledFlag'] == '':
+            cleanMemberParams['disabledFlag'] = False
+        if cleanMemberParams['lineOfBusiness'] == '':
+            logging.info('MemberId: %s; Error - Line Of Business not found; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
+        elif cleanMemberParams['lineOfBusiness'].upper() not in ('MEDICARE', 'MEDICAID', 'NEXT GEN', 'ACA'):
+            logging.info('MemberId: %s; Error - Line Of Business not valid; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
+        else: 
+            cleanMemberParams['lineOfBusiness'] = cleanMemberParams['lineOfBusiness'] 
+    except Exception:
+        raise
     return cleanMemberParams
 
 
@@ -44,36 +49,41 @@ def validateModelParameters(modelParams):
     return cleanModelParams
 
 
-def generateModelKey(age, disabledFlag, modelType, modelInput, modelWeight = 'ACUTE'):
+def generateModelKey(age, disabledFlag, modelType, modelInput,memberId, modelWeight = 'ACUTE'):
     """ what about use case for DADC - aid category """
-    if disabledFlag == False:
-        aidValue = 'AC' if age < 18 else 'AA'
-    elif disabledFlag == True:
-        aidValue = 'DC' if age < 18 else 'DA'
-    if modelType == 'CONCURRENT':
-       modelTypeValue = 'CON' 
-    elif modelType == 'PROSPECTIVE':
-         modelTypeValue = 'PRO'
-    modelInputValue = 'DX_RX' if modelInput == 'DX+RX' else modelInput
-    modelKey = aidValue + '_' + modelTypeValue + '_' + modelInputValue + '_' + modelWeight
+    try:
+        if disabledFlag == False:
+            aidValue = 'AC' if age < 18 else 'AA'
+        elif disabledFlag == True:
+            aidValue = 'DC' if age < 18 else 'DA'
+        if modelType == 'CONCURRENT':
+           modelTypeValue = 'CON' 
+        elif modelType == 'PROSPECTIVE':
+            modelTypeValue = 'PRO'
+        modelInputValue = 'DX_RX' if modelInput == 'DX+RX' else modelInput
+        modelKey = aidValue + '_' + modelTypeValue + '_' + modelInputValue + '_' + modelWeight
+    except Exception:
+        logging.error("Error occured while generating model Key for %s",memberId)
+        raise
     return modelKey
 
 
 def getInterceptScore(modelKey, weightsRefData, memberId):
     """ """
     modelWeights = referenceFilesData[weightsRefData]
-    InterceptScore = 0.00
+    #InterceptScore = 0.00
     try:
         InterceptScore = modelWeights['Intercept'][modelKey]
     except KeyError as e:
-        logging.error("MemberId: %s; Error occured while generating Intercept Score for %s", memberId, modelKey)           
+        logging.error("MemberId: %s; Error occured while generating Intercept Score for %s", memberId, modelKey)  
+        raise
     return round(InterceptScore, 3)
 
 
 def getDemographicScore(modelKey, weightsRefData, age, gender, memberId):
     """ """
     modelWeights = referenceFilesData[weightsRefData] 
-    demographicScore = 0.00
+    #demographicScore = 0.00
     for key in modelWeights:
         if key.startswith('a_') or (key.endswith('f') or key.endswith('m')): 
             split = (key.split('_'))                                        
@@ -87,6 +97,7 @@ def getDemographicScore(modelKey, weightsRefData, age, gender, memberId):
                     break
                 except KeyError as e:
                     logging.error("MemberId: %s; Error occured while generating Demographic Score for %s for %s", memberId, modelKey, key)
+                    raise
                     continue
     return round(demographicScore, 3)
 
@@ -113,6 +124,7 @@ def applyConditionsRollupLogic(modelKey, crosswalkRefData, diagnosisList, condit
                 conditions[each_condition] = max(prevRank, rank)
         except KeyError as e:
             logging.error("MemberId: %s; Conditions Rollup Logic: %s & %s not found in model Crosswalk", memberId, modelKey, code)
+            raise
             continue
     return conditions
 
@@ -157,6 +169,7 @@ def getHierarchyScore(modelKey, weightsRefData, hierarchyRefData, conditionsList
                 HierarchyScore = HierarchyScore + modelWeights[condition][weightsRefKey]
     except KeyError as e:
         logging.error("MemberId: %s; Error occured while generating Hierarchy Score for %s", memberId, modelKey)
+        raise
     return round(HierarchyScore, 3)
 
 
@@ -188,6 +201,7 @@ def getDiseaseInteractionScore(modelKey, weightsRefData, interactionRefData, con
                     diseaseInteractionScore = diseaseInteractionScore + modelWeights[condition][weightsRefKey]
         except KeyError as e:
             logging.error("MemberId: %s; Error occured while generating Disease Interaction Score for %s", memberId, modelKey)
+            raise
     return round(diseaseInteractionScore, 3)
 
 

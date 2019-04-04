@@ -18,7 +18,7 @@ def check_credential(adDomServer, dnAccount, dnPassword):
 		print('Authentication Errored', e)			
 	return isValid
 
-check_credential('aritprdc01.corp.evolenthealth.com','Swathi', 'Swathi')
+check_credential('aritprdc01.corp.evolenthealth.com', 'Swathi', 'Swathi')
 
 
 app = Flask('apiserver')
