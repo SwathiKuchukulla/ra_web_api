@@ -16,21 +16,21 @@ def validateMemberParameters(memberParams):
             logging.error('Error - MemberId: not found; Scoring can not be computed')
             raise Exception
         if cleanMemberParams['gender'] == '':
-            logging.info('MemberId: %s; Error - Gender not found; Effects Demographic Component', cleanMemberParams['memberKey'])
+            logging.error('MemberId: %s; Error - Gender not found; Effects Demographic Component', cleanMemberParams['memberKey'])
         elif cleanMemberParams['gender'] not in ('f', 'm', 'F', 'M'):
-            logging.info('MemberId: %s; Error - Gender not valid; Effects Demographic Component', cleanMemberParams['memberKey'])
+            logging.error('MemberId: %s; Error - Gender not valid; Effects Demographic Component', cleanMemberParams['memberKey'])
         else: 
             cleanMemberParams['gender'] = cleanMemberParams['gender'].lower()
         if cleanMemberParams['age'] == '':
-            logging.info('MemberId: %s; Error - Age not found; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
+            logging.error('MemberId: %s; Error - Age not found; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
         elif cleanMemberParams['age'] != int(cleanMemberParams['age']):
-            logging.info('MemberId: %s; Error - Age not valid; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])        
+            logging.error('MemberId: %s; Error - Age not valid; Effects Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])        
         if cleanMemberParams['disabledFlag'] == '':
             cleanMemberParams['disabledFlag'] = False
         if cleanMemberParams['lineOfBusiness'] == '':
-            logging.info('MemberId: %s; Error - Line Of Business not found; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
+            logging.error('MemberId: %s; Error - Line Of Business not found; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
         elif cleanMemberParams['lineOfBusiness'].upper() not in ('MEDICARE', 'MEDICAID', 'NEXT GEN', 'ACA'):
-            logging.info('MemberId: %s; Error - Line Of Business not valid; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
+            logging.error('MemberId: %s; Error - Line Of Business not valid; Effects Intercept, Demographic, Hierarchy & Disease Interaction Components', cleanMemberParams['memberKey'])
         else: 
             cleanMemberParams['lineOfBusiness'] = cleanMemberParams['lineOfBusiness'] 
     except Exception:
