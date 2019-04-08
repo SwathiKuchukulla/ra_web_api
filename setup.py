@@ -7,7 +7,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'flask',
-        'rascore@git+https://github.com/SwathiKuchukulla/ra_score.git',
+        'Risk-Adjustment-Scoring-Engine@git+https://github.com/SwathiKuchukulla/ra_score.git',
         'jsonschema',
         'httpie',
         'ldap3'
